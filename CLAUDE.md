@@ -40,6 +40,7 @@ El usuario puede escribirlos como texto (`nuevo_proyecto Nespresso Navidad`) o c
 | `sync_mails` | Revisa Gmail y actualiza el CRM | `sync-mails` |
 | `reporte_semanal` | Leads, contactos, respuestas, presupuestos, conversión de la semana | `reporte-semanal` |
 | `reporte_mensual` | Facturación, ganancia, margen, cerrados, pendientes, cobros | `reporte-mensual` |
+| `configurar_notion` | Vincula o crea las bases de Notion y guarda los IDs | `configurar-notion` |
 
 ## Reglas (no negociables)
 
