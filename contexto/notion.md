@@ -108,7 +108,7 @@ Seguimiento de producción de proyectos ganados. Al `cerrar_proyecto`: Estado = 
 | Marca | texto | ⏳ hoy es tipo email en Notion → cambiar a texto |
 | Agencia / Productora | texto | Quién nos pidió el presupuesto |
 | PM | texto | Contacto/PM del lado del cliente |
-| Monto | número | ⏳ hoy es tipo teléfono (texto `95.000.000`) → pasar a número. Mientras tanto: quitar puntos y convertir |
+| Monto | número (ARS) | ⏳ En Notion la propiedad figura como tipo **teléfono** (ícono 📞), por eso guarda texto. Leer con formato argentino: `.` = miles, `,` = decimales (`95.000.000` = 95 millones) |
 | Master | url (carpeta de Drive) | ⏳ hoy es tipo número → pasar a url |
 | Observación | ⚠️ número | |
 | Seleccionar | select | Estado: `A realizar`, `A confirmar`, `Realizado`, `Perdido`, `No se ejecuto`, `No habia presupuesto` |
