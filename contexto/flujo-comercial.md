@@ -12,7 +12,7 @@
 ### Qué hace Mr. Oriente acá
 - Buscar empresas/contactos con Lusha (u otra herramienta conectada) según industria, rol y país.
 - Antes de cargar a Notion: revisar duplicados en el CRM (por mail y por empresa) y **pedir confirmación** con la lista de leads a crear.
-- Cargar con Estado = `Nuevo` y Origen = herramienta usada.
+- Cargar en 👅 CRM Outreach — Nuevo con Estado = `Nuevo`, Fecha próxima acción = hoy (regla de oro) y Origen si el campo existe.
 
 ## 2. Outreach
 **Los mails los mandan los socios.** Mr. Oriente solo puede redactar textos en el chat si se lo piden.
@@ -26,21 +26,26 @@ Criterios para redactar:
 - **Seguimientos**: en el mismo hilo, conservando el asunto original.
 
 ### Cadencia sugerida (a ajustar)
+El CRM usa `Último mail` (Mail 1…Mail 5) para saber en qué paso está cada lead.
+
 | Paso | Cuándo | Próxima acción a cargar |
 |---|---|---|
-| Mail inicial | Día 0 | Seguimiento 1 a los 7 días |
-| Seguimiento 1 | Día 7 | Seguimiento 2 a los 7 días |
-| Seguimiento 2 | Día 14 | Último toque a los 14 días |
-| Último toque | Día 28 | Pasar a `Pausado` y recontactar en 90 días |
+| Mail 1 | Día 0 | Mail 2 a los 7 días |
+| Mail 2 | Día 7 | Mail 3 a los 7 días |
+| Mail 3 | Día 14 | Mail 4 a los 7 días |
+| Mail 4 | Día 21 | Mail 5 a los 14 días |
+| Mail 5 | Día 35 | Pasar a `Dormido` y recontactar en 90 días |
+
+> [CONFIRMAR] intervalos entre mails.
 
 ## 3. Brief y propuesta
-- Llega un brief del cliente/agencia → el lead pasa a `Brief recibido` y se crea el proyecto (`nuevo_proyecto`).
+- Llega un brief del cliente/agencia → el lead pasa a `Cotizando` y se crea el proyecto (`nuevo_proyecto`).
 - Si aplica, se arma un **tratamiento creativo** (Google Slides / PPTX) con el estilo visual de ORIENTE.
 - Se arma el **presupuesto** (ver `presupuesto.md`).
 - Con varias líneas o piezas: se puede presupuestar por separado y explicar alternativas de optimización (ej: unificar días de rodaje).
 
 ## 4. Negociación y cierre
 - Seguimiento del presupuesto con tono amable y abierto a ajustar para encontrar una solución que funcione para el cliente.
-- Cada versión nueva del presupuesto → nueva fila en Historial de presupuestos (V1, V2...).
-- Aprobado → proyecto a `Aprobado`, lead a `Ganado`, agendar fechas en Calendar.
+- Cada presupuesto enviado → fila en 📝 Historial de Presupuestos (`Seleccionar` = `A confirmar`).
+- Aprobado → proyecto `GANADO`, registro en 🚀 PRODUCCIÓN, lead `Cliente`, Historial `A realizar`, agendar fechas en Calendar.
 - Rechazado → registrar motivo de rechazo (precio, timing, eligieron otra productora, se cayó el proyecto, sin respuesta).

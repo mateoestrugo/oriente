@@ -1,89 +1,154 @@
-# Notion — bases de datos
+# Notion — bases de datos (estructura REAL)
 
-Notion es la fuente central de verdad. IDs de cada base en `config.md`.
+Todo vive en la página **ORIENTE | Dashboard**. IDs en `config.md`.
+Usá **exactamente** estos nombres de propiedad y opciones. Si encontrás un campo nuevo en Notion, mandá Notion: adaptate y avisá.
 
-> Los estados de abajo son una **propuesta inicial**. Si en Notion existen otros, mandan los de Notion: adaptate y avisá la diferencia.
+> Los campos marcados 🆕 son **propuestos y todavía no existen**. No los escribas hasta que aparezcan en el esquema (re-fetch de la base).
 
-## 1. Leads / CRM
-| Campo | Tipo | Notas |
+---
+
+## 1. 👅 CRM Outreach — Nuevo  (Leads)
+`collection://7492fc7d-8249-40e2-950b-a32146e85b7b`
+
+| Propiedad | Tipo | Uso |
 |---|---|---|
-| Empresa | Título | |
-| Contacto | Texto | Nombre y apellido |
-| Cargo | Texto | |
-| Mail | Email | Clave para cruzar con Gmail |
-| Tipo | Select | Marca / Agencia |
-| Industria | Select | Automotriz, Bebidas, Indumentaria, Alimentos/Lácteos, Telecomunicaciones, Bancos/Fintech, Retail, Cuidado personal, Seguros/Energía, Agencia, Otra |
-| Origen | Select | Lusha, Apollo, Skrap, Hunter.io, Referido, Evento, LinkedIn, Inbound, Otro |
-| Estado | Select | ver abajo |
-| Último contacto | Fecha | Último mail/llamada/reunión, de cualquiera de las dos partes |
-| Fecha de última acción | Fecha | Última acción de ORIENTE |
-| Próxima acción | Texto | Ej: "Seguimiento 1", "Mandar reel", "Call" |
-| Fecha de próxima acción | Fecha | |
-| Notas | Texto | Log con formato `[AAAA-MM-DD · autor] ...` (lo más nuevo arriba) |
+| Nombre del Lead | título | Nombre y apellido del contacto |
+| Empresa | texto | |
+| Email | email | **Clave para cruzar con Gmail** |
+| LinkedIn | url | |
+| Tipo | select | `Agencia` / `Marca` |
+| Rubro | select | Indumentaria, Eventos, Automotriz, Bebidas y Alimentacion, Electro, Beauty, Otros |
+| Estado | select | ver abajo |
+| Último mail | select | `Mail 1`…`Mail 5` → paso de la secuencia en el que está |
+| Fecha último contacto | fecha | Último contacto de cualquiera de las dos partes |
+| Próxima acción | texto | |
+| Fecha próxima acción | fecha | **Regla de oro: nunca vacía (salvo Descartado)** |
+| Fecha de Call | fecha | |
+| Notas | texto | Log `[AAAA-MM-DD · autor] ...` (lo más nuevo arriba) |
+| 🆕 Cargo | texto | |
+| 🆕 Origen | select | Lusha, Apollo, Skrap, Hunter.io, Referido, Evento, LinkedIn, Inbound, CRM viejo, Otro |
 
-### Estados de Lead
+### Estados (en orden de embudo)
 | Estado | Cuándo |
 |---|---|
 | Nuevo | Cargado, sin contactar |
-| En secuencia | Le escribimos, sin respuesta todavía |
-| Respondió | Contestó (sin acción concreta aún) |
-| Reunión agendada | Hay call/reunión confirmada |
-| Brief recibido | Mandó brief para presupuestar |
-| Presupuesto enviado | Hay presupuesto en revisión |
-| Ganado | Aprobó un proyecto (cliente activo) |
-| No interesado | Rechazó explícitamente |
-| Pausado | Sin respuesta tras la secuencia; recontactar más adelante |
+| En secuencia | Le escribimos, sin respuesta (ver `Último mail` para saber en qué paso) |
+| Respondió | Contestó, sin acción concreta todavía |
+| Call agendada | Hay call confirmada (completar `Fecha de Call`) |
+| Call hecha | Ya tuvimos la call |
+| Cotizando | Nos pasó brief / estamos presupuestando |
+| Cliente | Aprobó al menos un proyecto |
+| Dormido | Sin respuesta tras la secuencia; recontactar más adelante |
+| Descartado | No interesado / dato inválido |
 
-**Alertas**: próxima acción vencida; sin contacto > 15 días en estados activos (En secuencia, Respondió, Reunión agendada, Brief recibido, Presupuesto enviado).
+**Activos** (para alertas de 15 días): En secuencia, Respondió, Call agendada, Call hecha, Cotizando.
+**Alertas extra**: leads sin Estado; leads activos con `Fecha próxima acción` vacía (rompe la regla de oro).
 
-## 2. Proyectos
-| Campo | Tipo | Notas |
+### Transiciones desde Gmail (`sync_mails`)
+| Detectado | Estado | Otros campos |
 |---|---|---|
-| Nombre | Título | |
-| Cliente | Texto / Relación a Leads | Marca final |
-| Agencia | Texto / Relación a Leads | Si aplica |
-| Estado | Select | ver abajo |
-| Fechas de rodaje | Fecha (rango) | |
-| Fecha de entrega | Fecha | |
-| Monto presupuestado | Número | Última versión enviada |
-| Monto final | Número | Precio de venta aprobado/facturado |
-| Ganancia | Número | Se completa en `cerrar_proyecto` |
-| Moneda | Select | ARS / USD |
-| Carpeta Drive | URL | |
-| Presupuesto | URL | Link al Sheet |
-| Estado de cobro | Select | Sin facturar / Facturado / Cobrado parcial / Cobrado |
-| Fecha de factura | Fecha | |
-| Vencimiento de cobro | Fecha | Fecha de factura + plazo de pago |
-| Monto cobrado | Número | |
-| Crew | Relación a Crew | |
-| Notas | Texto | |
+| Mandamos mail | Nuevo → En secuencia | `Último mail` +1, `Fecha último contacto`, próxima acción = siguiente mail a +7 días |
+| Respondió | → Respondió | resumen en Notas |
+| Se agenda call | → Call agendada | `Fecha de Call` |
+| Pide presupuesto / brief | → Cotizando | sugerir `nuevo_proyecto` |
+| Aprobó | → Cliente | |
+| Rechaza | → Descartado | motivo en Notas |
+| Mail 5 sin respuesta | → Dormido | próxima acción = recontacto a 90 días |
 
-### Estados de Proyecto
-Presupuestando → Presupuesto enviado → Aprobado → Pre-producción → Rodaje → Post-producción → Entregado → **Finalizado**
-(o **Rechazado** / **Cancelado**)
+Nunca retroceder un estado salvo a Descartado/Dormido.
 
-## 3. Historial de presupuestos
-| Campo | Tipo |
+---
+
+## 2. 🌶️ PROYECTOS
+`collection://299e758f-7136-8017-8d7d-000b918e81e0`  · plantilla de página por defecto: "CLIENT - "
+
+| Propiedad | Tipo | Uso |
+|---|---|---|
+| Nombre del proyecto | título | En MAYÚSCULAS, como los existentes (ej: `CHOCOLINAS`) |
+| Estado | status | `Sin empezar`, `Presupuestando`, `GANADO`, `PERDIDO`, `CERRADO` |
+| Prioridad | select | Alta / Media / Baja |
+| Responsable | persona | |
+| Fecha  | fecha | (el nombre tiene un espacio al final: `"Fecha "`) — fecha de rodaje |
+| Deadline | fecha | Entrega |
+| PAGO | select | `PAGADO` / `NO PAGO` |
+| Presupuesto | archivos | |
+| Entregas | archivos | |
+| Archivos y multimedia | archivos | |
+| Producción | relación → PRODUCCIÓN | |
+| 🆕 Cliente (marca) | texto | |
+| 🆕 Agencia | texto | |
+| 🆕 Lead | relación → CRM | |
+| 🆕 Carpeta Drive | url | |
+| 🆕 Link presupuesto | url | Sheet de Drive |
+| 🆕 Monto presupuestado | número | |
+| 🆕 Monto final | número | |
+| 🆕 Costo real | número | |
+| 🆕 Ganancia | número | |
+| 🆕 Moneda | select | ARS / USD |
+| 🆕 Fecha de factura | fecha | |
+| 🆕 Vencimiento de cobro | fecha | |
+| 🆕 PAGO: opciones `FACTURADO`, `COBRO PARCIAL` | | además de PAGADO / NO PAGO |
+
+**Ciclo**: Sin empezar → Presupuestando → GANADO (se crea/actualiza registro en PRODUCCIÓN) → CERRADO (con `cerrar_proyecto`). O → PERDIDO.
+
+## 3. 🚀 PRODUCCIÓN
+`collection://329e758f-7136-8017-b05b-000bf5270cec`
+
+| Propiedad | Tipo | Uso |
+|---|---|---|
+| Nombre | título | |
+| Estado | status | `Pre Producción`, `Producción`, `Post Producción`, `Finalizado` |
+| Proyecto | relación → PROYECTOS | |
+
+Seguimiento de producción de proyectos ganados. Al `cerrar_proyecto`: Estado = Finalizado.
+
+---
+
+## 4. 📝 Historial de Presupuestos - 2026
+`collection://32ae758f-7136-8134-96da-000b0d475f9c`
+
+| Propiedad | Tipo real | Uso |
+|---|---|---|
+| Proyecto | título | Nombre de la pieza/proyecto |
+| Marca | ⚠️ email | Se usa como texto (ej: "Branca Fratelli") |
+| Agencia / Productora | texto | Quién nos pidió el presupuesto (agencia o productora para la que hacemos línea) |
+| PM | texto | Contacto/PM del lado del cliente |
+| Monto | ⚠️ teléfono | Texto con formato `95.000.000`. Para sumar: quitar puntos y convertir a número |
+| Master | número | |
+| Observación | ⚠️ número | |
+| Seleccionar | select | Estado: `A realizar`, `A confirmar`, `Realizado`, `Perdido`, `No se ejecuto`, `No habia presupuesto` |
+| Fecha | fecha | Fecha de envío |
+| 🆕 Versión | número | |
+| 🆕 Motivo de rechazo | select | Precio, Timing, Otra productora, Se cayó el proyecto, Sin respuesta, Otro |
+| 🆕 Proyecto (relación) | relación → PROYECTOS | |
+
+Equivalencias con el flujo: Enviado/En revisión = `A confirmar` · Aprobado = `A realizar` → `Realizado` · Rechazado = `Perdido` / `No se ejecuto`.
+
+---
+
+## 5. 🥷🏼 CREW
+`collection://29ce758f-7136-8037-890d-000bf09945cb`
+
+| Propiedad | Tipo | Uso |
+|---|---|---|
+| Nombre | título | |
+| Role | select | DoP, Filmmaker, Fotografo, Dir. Arte, Foodstyler, Utilero, Productor, Jefe de Locaciones, Droner, Droner FPV, Director, Editor, Colorista, Maquilladora, Vestuarista, Realizador, Russian Arm, VFX, Pelo, Sonidista, Key Grip, Foquista |
+| Teléfono | teléfono | |
+| Trabajamos | select | Si / No |
+| Observación | texto | |
+| 🆕 Email | email | |
+| 🆕 Tarifa de referencia | número | por jornada |
+| 🆕 Fecha de tarifa | fecha | |
+| 🆕 Proyectos | relación → PROYECTOS | |
+
+**Uso**: al armar un presupuesto, sugerir crew por rol priorizando `Trabajamos = Si`.
+
+## 6. Otras bases (solo lectura / referencia)
+| Base | Para qué |
 |---|---|
-| Proyecto | Relación a Proyectos (título: "{Proyecto} – V{n}") |
-| Versión | Número (1, 2, 3...) |
-| Fecha de envío | Fecha |
-| Monto | Número |
-| Moneda | Select |
-| Estado | Select: Enviado / En revisión / Aprobado / Rechazado |
-| Motivo de rechazo | Select + texto: Precio, Timing, Eligieron otra productora, Se cayó el proyecto, Sin respuesta, Otro |
-| Link | URL al Sheet |
-
-## 4. Crew y proveedores
-| Campo | Tipo |
-|---|---|
-| Nombre | Título |
-| Rol | Multi-select: Director, DF, Foquista, Gaffer, Eléctrico, Grip, Arte, Vestuario, Maquillaje, Sonido, Foto fija, Food stylist, Productor, Asistente, Editor, Colorista, Post/VFX, Música, Locación, Rental, Catering, Transporte, Otro |
-| Contacto | Teléfono / Mail |
-| Tarifa de referencia | Número + unidad (jornada / proyecto) |
-| Fecha de la tarifa | Fecha (para saber si está desactualizada) |
-| Proyectos | Relación a Proyectos |
-| Calificación | Select 1–5 (opcional) |
-| Notas | Texto |
-
-**Uso**: al armar un presupuesto, sugerir crew por rol a partir de proyectos anteriores similares (mismo cliente, tipo de pieza o industria), con su última tarifa y la fecha de esa tarifa.
+| ⚕️ SEGUROS | Datos de crew para seguros de rodaje (DNI, nacimiento). **Datos personales: no exponer salvo pedido explícito.** |
+| 📒 PLANTILLAS | Links a plantillas de Google (ver `config.md`) |
+| TAREAS | Objetivos generales del equipo |
+| DIRECTORES | Inspo de directores |
+| INSPO, DISCOS, Manual de Ventas, PORTFOLIO Y DECKS, Finanzas | Referencia |
+| CRM Agencias OLD / CRM Marcas OLD | **Históricos. No escribir.** Solo consultar si un lead no está en el CRM nuevo |

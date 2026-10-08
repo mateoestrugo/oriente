@@ -13,21 +13,24 @@ Solo buscar y leer. Nunca enviar, responder, reenviar, crear borradores, archiva
 
 ## Pasos
 
-1. **Traer contactos** del CRM (mails) con estado activo, más los `Nuevo`.
+1. **Traer contactos** del CRM (`Email`) con estado activo (En secuencia, Respondió, Call agendada, Call hecha, Cotizando, Cliente), más los `Nuevo`. Ojo: hay mails con errores heredados del CRM viejo (ej: prefijo 'don'); si un mail rebota o no matchea, avisalo.
 2. **Buscar en Gmail** mails enviados a / recibidos de esos mails en el período (en las cuentas de `config.md`). Agrupar por hilo.
 3. **Clasificar** cada hilo y aplicar (regla 4 de CLAUDE.md: estos cambios se aplican directo):
 
-| Detectado | Cambios en Notion |
+| Detectado | Cambios en 👅 CRM Outreach — Nuevo |
 |---|---|
-| Le escribimos (sin respuesta) | Último contacto y Fecha de última acción = fecha del mail. Si estaba `Nuevo` → `En secuencia`. Próxima acción = "Seguimiento N", fecha = +7 días |
-| Respondió | Estado → `Respondió`. Último contacto = fecha. Resumen de 1–2 líneas en Notas. Próxima acción según el contenido |
-| Se agenda reunión | Estado → `Reunión agendada`. Próxima acción = "Reunión", fecha = día de la reunión. Ofrecer crear el evento en Calendar |
-| Pide presupuesto / manda brief | Estado → `Brief recibido`. Próxima acción = "Armar presupuesto". Sugerir `nuevo_proyecto` |
-| Responde a un presupuesto | Actualizar el Historial de presupuestos (`En revisión` / `Aprobado` / `Rechazado` + motivo). Si aprobado → lead `Ganado` y proyecto `Aprobado` |
-| Rechaza / no le interesa | Estado → `No interesado`. Motivo en Notas. Sin próxima acción (o recontacto en 6 meses si dejó la puerta abierta) |
+| Le escribimos (sin respuesta) | `Fecha último contacto` = fecha del mail. `Último mail` = Mail N (contar mails nuestros en el hilo). Si estaba `Nuevo` → `En secuencia`. Próxima acción = "Mail N+1", fecha = +7 días |
+| Respondió | Estado → `Respondió`. `Fecha último contacto`. Resumen de 1–2 líneas en Notas. Próxima acción según el contenido |
+| Se agenda call | Estado → `Call agendada`. `Fecha de Call`. Próxima acción = "Call", fecha = día de la call. Ofrecer crear el evento en Calendar |
+| Pasó la call (hay mail posterior) | Estado → `Call hecha` |
+| Pide presupuesto / manda brief | Estado → `Cotizando`. Próxima acción = "Armar presupuesto". Sugerir `nuevo_proyecto` |
+| Responde a un presupuesto | Actualizar 📝 Historial (`Seleccionar`: `A confirmar` / `A realizar` / `Perdido`). Si aprueba → lead `Cliente` y proyecto `GANADO` (confirmar montos antes) |
+| Rechaza / no le interesa | Estado → `Descartado`. Motivo en Notas |
+| Mail 5 sin respuesta | Estado → `Dormido`. Próxima acción = "Recontactar", fecha = +90 días |
 | Fuera de oficina / rebote | Solo nota. Rebote → avisar que el mail es inválido |
 
-   - Nunca retroceder un estado (ej: no pasar de `Reunión agendada` a `Respondió`) salvo rechazo.
+   - Nunca retroceder un estado (ej: no pasar de `Call agendada` a `Respondió`) salvo a `Descartado`/`Dormido`.
+   - Regla de oro: ningún lead activo queda con `Fecha próxima acción` vacía.
    - Notas: `[AAAA-MM-DD · Mr. Oriente · sync_mails] {qué pasó}. Estado: {antes} → {después}.`
 4. **Mails de gente que NO está en el CRM** pero parecen comerciales (agencias/marcas respondiendo, briefs): **no crearlos**. Listarlos al final y preguntar si se cargan como leads.
 5. **Responder**:
