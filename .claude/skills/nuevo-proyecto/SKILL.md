@@ -28,7 +28,7 @@ Leé antes `contexto/google.md` (estructura de carpetas) y `contexto/config.md` 
      - `+timing` → `04 Call sheet/Timing - {NOMBRE}`
      - `+contrato` → `02 Carta de venta/Contrato - {NOMBRE}`
    - Si la plantilla tiene un campo de nombre de proyecto/cliente/fecha visible, completalo. No toques montos.
-6. **Notion → 🌶️ PROYECTOS**: re-fetch del esquema y crear el registro con la plantilla "CLIENT - " si aplica. `Nombre del proyecto` en MAYÚSCULAS, Estado = `Presupuestando`, `PAGO` = `NO PAGO`. Si ya existen los campos 🆕 (Cliente, Agencia, Carpeta Drive, Link presupuesto), completarlos; si no, poner los links en el cuerpo de la página. Dejar en el cuerpo: `[AAAA-MM-DD · Mr. Oriente] Proyecto creado con nuevo_proyecto`.
+6. **Notion → 🌶️ PROYECTOS**: re-fetch del esquema y crear el registro con la plantilla "CLIENT - " si aplica. `Nombre del proyecto` en MAYÚSCULAS, Estado = `Presupuestando`, `PAGO` = `NO PAGO`. `Fecha de presupuesto` = hoy. Si ya existen los campos 🆕 (Cliente, Agencia, Carpeta Drive), completarlos; si no, poner el link de la carpeta y del presupuesto en el cuerpo de la página. Dejar en el cuerpo: `[AAAA-MM-DD · Mr. Oriente] Proyecto creado con nuevo_proyecto`.
 7. **Lead asociado** (si hay, en 👅 CRM): si estaba antes de `Cotizando`, pasarlo a `Cotizando` y dejar registro en Notas.
 8. **📝 Historial de Presupuestos**: no crear fila todavía; se crea cuando se envía el presupuesto (preguntar monto).
 9. **Responder**:

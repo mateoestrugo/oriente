@@ -16,7 +16,7 @@ Buscar: `$ARGUMENTS`
    - Links: carpeta Drive, presupuesto, Notion
    - Últimas 3 notas y próximo hito
 3. Si es **lead**, mostrar:
-   - Contacto, cargo, mail · Tipo/Industria · Origen · Estado
+   - Contacto, cargo, mail · Tipo/Rubro · Estado · Último mail
    - Último contacto y próxima acción (⚠️ si vencida o > 15 días sin contacto)
    - Proyectos/presupuestos asociados
    - Últimas 3 notas
