@@ -20,22 +20,22 @@ Completá cada `[COMPLETAR]`. Mientras un dato falte, Mr. Oriente lo va a pedir 
 ## Google Drive
 | Qué | ID / URL |
 |---|---|
-| Carpeta raíz de proyectos | [COMPLETAR] |
-| Planilla Ganancias ORIENTE | [COMPLETAR] |
+| Carpeta raíz de proyectos | [COMPLETAR] — Mateo la comparte (incluye carpeta TEMPLATE con todos los archivos a duplicar) |
+| Planilla Ganancias ORIENTE | [COMPLETAR] — hay una vieja; revisar con Mateo si sirve o se mejora antes de usarla |
 
 ## Plantillas
 | Plantilla | Tipo | Se copia | ID / URL |
 |---|---|---|---|
 | Presupuesto | Sheet | Siempre | [COMPLETAR] — no está en la base PLANTILLAS de Notion |
-| Carta de venta (Negro) | Doc | Siempre (default) [CONFIRMAR cuál por defecto] | https://docs.google.com/document/d/1RB-5p-7-mzsqlxUFRFnOtHVjuq5J9F6Ha1BtLQqg2LA |
-| Carta de venta (Blanco) | Doc | Alternativa | https://docs.google.com/document/d/187y4AN4ZenOQNZSWrbkgn-G9O0yo6C7dfq356V3snTE |
+| Carta de venta (Negro) | Doc | Referencia — la que se usa va a estar en la carpeta TEMPLATE | https://docs.google.com/document/d/1RB-5p-7-mzsqlxUFRFnOtHVjuq5J9F6Ha1BtLQqg2LA |
+| Carta de venta (Blanco) | Doc | Referencia | https://docs.google.com/document/d/187y4AN4ZenOQNZSWrbkgn-G9O0yo6C7dfq356V3snTE |
 | Tratamiento | Slides | `+tratamiento` | https://docs.google.com/presentation/d/1vB09o6yMZhNQGXm1tAhIPzo-JVJ7ua_LFiRyCGfSbs8 |
 | Plan de rodaje | Sheet | `+plan_rodaje` | https://docs.google.com/spreadsheets/d/18O6DYjqZKC00avg98bxiGRlrOdKsZDTqAnqxCyrtD3Q |
 | Timing | Sheet | `+timing` [CONFIRMAR] | https://docs.google.com/spreadsheets/d/1shWGIqRFhZXHdJNDfd6a4sf0OaswnHiRqA1ktXrEUpA |
 | Call sheet | Sheet/Doc | `+callsheet` | [COMPLETAR] |
 | Contrato | Doc | `+contrato` | [COMPLETAR] |
 
-Fuente: base 📒 PLANTILLAS de Notion. Si cambia un link ahí, actualizarlo acá.
+Fuente: base 📒 PLANTILLAS de Notion. **Cuando esté la carpeta TEMPLATE en Drive, esa pasa a ser la fuente de verdad** y esta tabla se actualiza con lo que haya ahí.
 
 ## Google Calendar
 | Qué | ID |
