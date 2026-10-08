@@ -31,7 +31,7 @@ Estado de cobro: … (¿es correcto?)
 
 5. Con el OK:
    - **Ganancias ORIENTE → Registro**: agregar una fila al final (fecha de cierre = hoy salvo que digan otra, mes, año, cliente, agencia, proyecto, moneda, precio de venta, costo, ganancia, margen %, estado de cobro, link Notion). Nunca sobrescribir filas existentes. Si ya hay una fila de ese proyecto, avisá y no dupliques.
-   - **🌶️ PROYECTOS**: Estado = `CERRADO`. `Ganancia` (y `Fecha de factura` / `Vencimiento de cobro` si se conocen) si los campos existen; precio de venta y costo real van en el cuerpo de la página de la página con el registro del cierre.
+   - **🌶️ PROYECTOS**: Estado = `CERRADO`. `Ganancia` (y `Fecha de factura` / `Vencimiento de cobro` si se conocen); precio de venta y costo real van en el cuerpo de la página de la página con el registro del cierre.
    - **🚀 PRODUCCIÓN**: Estado = `Finalizado`.
    - **📝 Historial**: la fila del presupuesto aprobado → `Realizado`.
 6. **Responder** con "Cambios aplicados" y links (fila de la planilla y registro de Notion). Si el cobro no está completo, recordá la fecha de vencimiento.

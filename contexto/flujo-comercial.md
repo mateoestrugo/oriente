@@ -12,7 +12,7 @@
 ### Qué hace Mr. Oriente acá
 - Buscar empresas/contactos con Lusha (u otra herramienta conectada) según industria, rol y país.
 - Antes de cargar a Notion: revisar duplicados en el CRM (por mail y por empresa) y **pedir confirmación** con la lista de leads a crear.
-- Cargar en 👅 CRM Outreach — Nuevo con Estado = `Nuevo`, Fecha próxima acción = hoy (regla de oro), Cargo si el campo existe, y la herramienta de origen (Lusha, etc.) en Notas.
+- Cargar en 👅 CRM Outreach — Nuevo con Estado = `Nuevo`, Fecha próxima acción = hoy (regla de oro), Cargo, y la herramienta de origen (Lusha, etc.) en Notas.
 
 ## 2. Outreach
 **Los mails los mandan los socios.** Mr. Oriente solo puede redactar textos en el chat si se lo piden.

@@ -15,7 +15,7 @@ Usá **exactamente** estos nombres de propiedad y opciones. Si encontrás un cam
 | Nombre del Lead | título | Nombre y apellido del contacto |
 | Email | email | **Clave para cruzar con Gmail** |
 | Empresa | texto | |
-| Cargo | texto | ⏳ falta crearlo en Notion |
+| Cargo | texto | |
 | Estado | select | ver abajo |
 | Último mail | select | `Mail 1`…`Mail 5` → paso de la secuencia en el que está |
 | Fecha último contacto | fecha | Último contacto de cualquiera de las dos partes |
@@ -68,19 +68,20 @@ Nunca retroceder un estado salvo a Descartado/Dormido.
 | Estado | status | `Sin empezar`, `Presupuestando`, `GANADO`, `PERDIDO`, `CERRADO` |
 | Prioridad | select | Alta / Media / Baja |
 | Responsable | persona | |
-| Fecha de presupuesto | fecha | ⏳ hoy se llama `Deadline` en Notion → renombrar |
+| Fecha de presupuesto | fecha | Fecha en que se presupuestó (ex `Deadline`) |
 | Fecha  | fecha | (el nombre tiene un espacio al final: `"Fecha "`) — fecha de rodaje |
 | PAGO | select | `PAGADO` / `NO PAGO` |
 | Entregas | archivos | |
 | Archivos y multimedia | archivos | |
 | Producción | relación → PRODUCCIÓN | |
-| 🆕 Cliente (marca) | texto | |
-| 🆕 Agencia | texto | |
-| 🆕 Carpeta Drive | url | Ahí vive el presupuesto (`01 Presupuesto/`) |
-| 🆕 Monto presupuestado | número | |
-| 🆕 Ganancia | número | |
-| 🆕 Fecha de factura | fecha | |
-| 🆕 Vencimiento de cobro | fecha | |
+| Cliente (marca) | texto | |
+| Agencia | texto | |
+| Carpeta Drive | url | Ahí vive el presupuesto (`01 Presupuesto/`) |
+| Monto presupuestado | número | |
+| Ganancia | número | |
+| Fecha de factura | fecha | |
+| Vencimiento de cobro | fecha | |
+| Presupuestos | relación ← 📝 Historial | Automática (lado inverso de `Proyecto (relación)`) |
 
 (La propiedad `Presupuesto` (archivos) existe pero no se usa: el presupuesto se encuentra por la Carpeta Drive.)
 
@@ -105,15 +106,15 @@ Seguimiento de producción de proyectos ganados. Al `cerrar_proyecto`: Estado = 
 | Propiedad | Tipo real | Uso |
 |---|---|---|
 | Proyecto | título | Nombre de la pieza/proyecto |
-| Marca | texto | ⏳ hoy es tipo email en Notion → cambiar a texto |
+| Marca | texto | |
 | Agencia / Productora | texto | Quién nos pidió el presupuesto |
 | PM | texto | Contacto/PM del lado del cliente |
-| Monto | número (ARS) | ⏳ En Notion la propiedad figura como tipo **teléfono** (ícono 📞), por eso guarda texto. Leer con formato argentino: `.` = miles, `,` = decimales (`95.000.000` = 95 millones) |
-| Master | url (carpeta de Drive) | ⏳ hoy es tipo número → pasar a url |
+| Monto | teléfono (se usa como número, ARS) | Queda como tipo teléfono a propósito: guarda texto. Leer con formato argentino: `.` = miles, `,` = decimales (`95.000.000` = 95 millones) |
+| Master | url | Link a la carpeta de Drive del master |
 | Observación | ⚠️ número | |
 | Seleccionar | select | Estado: `A realizar`, `A confirmar`, `Realizado`, `Perdido`, `No se ejecuto`, `No habia presupuesto` |
 | Fecha | fecha | Fecha de envío |
-| 🆕 Proyecto (relación) | relación → PROYECTOS | |
+| Proyecto (relación) | relación → PROYECTOS | Vincular siempre al crear una fila |
 
 Equivalencias con el flujo: Enviado/En revisión = `A confirmar` · Aprobado = `A realizar` → `Realizado` · Rechazado = `Perdido` / `No se ejecuto`.
 
